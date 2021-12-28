@@ -7,12 +7,16 @@ import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from './screens/HomeScreen';
 import AssetScreen from './screens/AssetScreen';
 import AssetStackScreen from './screens/AssetStackScreen';
+import { Provider } from 'react-redux';
+import store from './store';
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <Provider store={store}>
+          
+      <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -49,7 +53,10 @@ export default function App() {
           }}
         />
       </Tab.Navigator>
-    </NavigationContainer>
+      </NavigationContainer>
+
+    </Provider>
+    
   );
 }
 
